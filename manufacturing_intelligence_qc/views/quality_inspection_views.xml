@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_miqc_quality_inspection_tree" model="ir.ui.view">
+        <field name="name">miqc.quality.inspection.tree</field>
+        <field name="model">miqc.quality.inspection</field>
+        <field name="arch" type="xml">
+            <tree string="Quality Inspections">
+                <field name="name"/>
+                <field name="product"/>
+                <field name="inspection_type"/>
+                <field name="inspector"/>
+                <field name="defect_count"/>
+                <field name="ai_defect_prediction"/>
+                <field name="state"/>
+                <field name="date_inspected"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_miqc_quality_inspection_form" model="ir.ui.view">
+        <field name="name">miqc.quality.inspection.form</field>
+        <field name="model">miqc.quality.inspection</field>
+        <field name="arch" type="xml">
+            <form string="Quality Inspection">
+                <header>
+                    <button name="action_pass" type="object" string="Pass" class="oe_highlight" invisible="state == 'passed'"/>
+                    <button name="action_fail" type="object" string="Fail" invisible="state == 'failed'"/>
+                    <button name="action_rework" type="object" string="Rework" invisible="state == 'rework'"/>
+                    <button name="action_draft" type="object" string="Reset to Draft" invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,passed,failed,rework"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="product"/>
+                            <field name="inspection_type"/>
+                        </group>
+                        <group>
+                            <field name="inspector"/>
+                            <field name="date_inspected"/>
+                            <field name="defect_count"/>
+                        </group>
+                    </group>
+                    <group string="AI Prediction">
+                        <field name="ai_defect_prediction"/>
+                    </group>
+                    <group string="Notes">
+                        <field name="notes" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_miqc_quality_inspection" model="ir.actions.act_window">
+        <field name="name">Quality Inspections</field>
+        <field name="res_model">miqc.quality.inspection</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new quality inspection
+            </p>
+        </field>
+    </record>
+</odoo>

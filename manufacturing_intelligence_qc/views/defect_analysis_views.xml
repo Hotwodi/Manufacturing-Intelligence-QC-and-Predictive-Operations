@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_miqc_defect_analysis_tree" model="ir.ui.view">
+        <field name="name">miqc.defect.analysis.tree</field>
+        <field name="model">miqc.defect.analysis</field>
+        <field name="arch" type="xml">
+            <tree string="Defect Analysis" decoration-success="state == 'resolved'" decoration-warning="state == 'analyzing'">
+                <field name="name"/>
+                <field name="defect_type"/>
+                <field name="occurrence_count"/>
+                <field name="ai_root_cause_confidence"/>
+                <field name="state"/>
+                <field name="date_opened"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_miqc_defect_analysis_form" model="ir.ui.view">
+        <field name="name">miqc.defect.analysis.form</field>
+        <field name="model">miqc.defect.analysis</field>
+        <field name="arch" type="xml">
+            <form string="Defect Analysis">
+                <header>
+                    <button name="action_analyze" type="object" string="Analyze" class="oe_highlight" invisible="state != 'open'"/>
+                    <button name="action_resolve" type="object" string="Resolve" class="oe_highlight" invisible="state != 'analyzing'"/>
+                    <button name="action_open" type="object" string="Reopen" invisible="state == 'open'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,analyzing,resolved"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="defect_type"/>
+                            <field name="occurrence_count"/>
+                            <field name="date_opened"/>
+                        </group>
+                    </group>
+                    <group string="AI Root Cause Analysis">
+                        <field name="ai_root_cause_confidence"/>
+                        <field name="root_cause"/>
+                    </group>
+                    <group string="Corrective Action">
+                        <field name="corrective_action" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_miqc_defect_analysis" model="ir.actions.act_window">
+        <field name="name">Defect Analysis</field>
+        <field name="res_model">miqc.defect.analysis</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new defect analysis record
+            </p>
+        </field>
+    </record>
+</odoo>

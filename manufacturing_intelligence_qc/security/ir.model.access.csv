@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_miqc_production_line_user,miqc.production.line.user,model_miqc_production_line,base.group_user,1,1,1,1
+access_miqc_quality_inspection_user,miqc.quality.inspection.user,model_miqc_quality_inspection,base.group_user,1,1,1,1
+access_miqc_predictive_maintenance_user,miqc.predictive.maintenance.user,model_miqc_predictive_maintenance,base.group_user,1,1,1,1
+access_miqc_kpi_dashboard_user,miqc.kpi.dashboard.user,model_miqc_kpi_dashboard,base.group_user,1,1,1,1
+access_miqc_defect_analysis_user,miqc.defect.analysis.user,model_miqc_defect_analysis,base.group_user,1,1,1,1

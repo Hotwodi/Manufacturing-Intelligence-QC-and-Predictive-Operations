@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_miqc_production_line_tree" model="ir.ui.view">
+        <field name="name">miqc.production.line.tree</field>
+        <field name="model">miqc.production.line</field>
+        <field name="arch" type="xml">
+            <tree string="Production Lines">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="capacity"/>
+                <field name="throughput"/>
+                <field name="current_oee"/>
+                <field name="oee_target"/>
+                <field name="state"/>
+                <field name="downtime_hours"/>
+                <field name="ai_efficiency_score"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_miqc_production_line_form" model="ir.ui.view">
+        <field name="name">miqc.production.line.form</field>
+        <field name="model">miqc.production.line</field>
+        <field name="arch" type="xml">
+            <form string="Production Line">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="active"/>
+                            <field name="state"/>
+                        </group>
+                        <group>
+                            <field name="capacity"/>
+                            <field name="throughput"/>
+                            <field name="downtime_hours"/>
+                        </group>
+                    </group>
+                    <group string="OEE Metrics">
+                        <group>
+                            <field name="oee_target"/>
+                            <field name="current_oee"/>
+                        </group>
+                        <group>
+                            <field name="ai_efficiency_score"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_miqc_production_line" model="ir.actions.act_window">
+        <field name="name">Production Lines</field>
+        <field name="res_model">miqc.production.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new production line
+            </p>
+        </field>
+    </record>
+</odoo>

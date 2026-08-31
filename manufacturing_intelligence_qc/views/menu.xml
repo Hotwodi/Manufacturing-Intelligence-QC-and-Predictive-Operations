@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_miqc_root"
+        name="Manufacturing Intelligence"
+        sequence="10"
+        web_icon="manufacturing_intelligence_qc,static/description/icon.png"/>
+
+    <menuitem id="menu_miqc_production_lines"
+        name="Production Lines"
+        parent="menu_miqc_root"
+        action="action_miqc_production_line"
+        sequence="10"/>
+
+    <menuitem id="menu_miqc_quality_inspections"
+        name="Quality Inspections"
+        parent="menu_miqc_root"
+        action="action_miqc_quality_inspection"
+        sequence="20"/>
+
+    <menuitem id="menu_miqc_predictive_maintenance"
+        name="Predictive Maintenance"
+        parent="menu_miqc_root"
+        action="action_miqc_predictive_maintenance"
+        sequence="30"/>
+
+    <menuitem id="menu_miqc_kpi_dashboard"
+        name="KPI Dashboard"
+        parent="menu_miqc_root"
+        action="action_miqc_kpi_dashboard"
+        sequence="40"/>
+
+    <menuitem id="menu_miqc_defect_analysis"
+        name="Defect Analysis"
+        parent="menu_miqc_root"
+        action="action_miqc_defect_analysis"
+        sequence="50"/>
+</odoo>
