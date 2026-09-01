@@ -4,7 +4,7 @@
         <field name="name">miqc.production.line.tree</field>
         <field name="model">miqc.production.line</field>
         <field name="arch" type="xml">
-            <tree string="Production Lines">
+            <list string="Production Lines">
                 <field name="code"/>
                 <field name="name"/>
                 <field name="capacity"/>
@@ -14,7 +14,7 @@
                 <field name="state"/>
                 <field name="downtime_hours"/>
                 <field name="ai_efficiency_score"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -54,7 +54,7 @@
     <record id="action_miqc_production_line" model="ir.actions.act_window">
         <field name="name">Production Lines</field>
         <field name="res_model">miqc.production.line</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create a new production line

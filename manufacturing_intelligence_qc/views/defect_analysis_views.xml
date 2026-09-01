@@ -4,14 +4,14 @@
         <field name="name">miqc.defect.analysis.tree</field>
         <field name="model">miqc.defect.analysis</field>
         <field name="arch" type="xml">
-            <tree string="Defect Analysis" decoration-success="state == 'resolved'" decoration-warning="state == 'analyzing'">
+            <list string="Defect Analysis" decoration-success="state == 'resolved'" decoration-warning="state == 'analyzing'">
                 <field name="name"/>
                 <field name="defect_type"/>
                 <field name="occurrence_count"/>
                 <field name="ai_root_cause_confidence"/>
                 <field name="state"/>
                 <field name="date_opened"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -50,7 +50,7 @@
     <record id="action_miqc_defect_analysis" model="ir.actions.act_window">
         <field name="name">Defect Analysis</field>
         <field name="res_model">miqc.defect.analysis</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create a new defect analysis record
